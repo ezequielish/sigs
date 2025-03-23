@@ -29,10 +29,7 @@ class CategoriaController extends Controller
     public function update(CategoriaRequest $request, $id): JsonResponse
     {
         try {
-
-            if (! is_numeric($id)) {
-                throw new \Exception("El id es inválido.", 400);
-            }
+            parent::validarId($id);
             $data      = $request->validated();
             $categoria = CategoriaModel::find($id);
 
@@ -66,9 +63,7 @@ class CategoriaController extends Controller
     public function show($id): JsonResponse
     {
         try {
-            if (! is_numeric($id)) {
-                throw new \Exception("El id es inválido.", 400);
-            }
+            parent::validarId($id);
             $categoria = CategoriaModel::find($id);
             $code      = $categoria ? 200 : 404;
             return response()->json([
@@ -83,9 +78,7 @@ class CategoriaController extends Controller
     public function destroy($id): JsonResponse
     {
         try {
-            if (! is_numeric($id)) {
-                throw new \Exception("El id es inválido.", 400);
-            }
+            parent::validarId($id);
             $eliminado = CategoriaModel::destroy($id);
             if ($eliminado === 0) {
                 throw new \Exception("Registro no encontrado.", 404);
