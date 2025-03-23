@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::controller(CategoriaController::class)->group(function () {
+    Route::get("/categoria", "index");
+    Route::get("/categoria/{id}", "show");
+    Route::post("/categoria", "store");
+    Route::put("/categoria/{id}", "update");
+    Route::delete("/categoria/{id}", "destroy");
 });
