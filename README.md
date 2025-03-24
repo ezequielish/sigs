@@ -7,6 +7,47 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## 1) Instalar dependencias
+Una vez descargado el proyecto instalar las dependencias ejecutando
+
+```
+composer install
+
+```
+
+## 2) Configurar la conexión.
+ Se debe configurar la base de datos.
+ en el archivo .env reemplazar los siguientes valores, se puede usar motor mysql o psql:
+
+ ```
+	DB_CONNECTION=pgsql
+	DB_HOST=127.0.0.1
+	DB_PORT=5432
+	DB_DATABASE=
+	DB_USERNAME=
+	DB_PASSWORD=
+	DB_CHARSET=utf8
+	DB_COLLATION=utf8_unicode_ci
+ ```
+
+## 3) Correr migraciones.
+
+Desde la terminal en la raiz del proyecto ejecutar el comando:
+
+```
+php artisan migrate
+
+```
+
+## 4) Iniciar el servidor.
+
+Desde la terminal ejecutar el comando:
+
+```
+php artisan serve
+
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
