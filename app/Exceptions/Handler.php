@@ -39,7 +39,7 @@ class Handler extends ExceptionHandler
             foreach ($e->validator->errors()->all() as $key => $value) {
                 return response()->json(
                     [
-                        'message' => $value,
+                        'mensaje' => $value,
                         'error'   => true,
                     ], 400);
             }
@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
         if (\property_exists($e, 'message')) {
             return response()->json(
                 [
-                    'message' => $e->getMessage(),
+                    'mensaje' => $e->getMessage(),
                     'error'   => true,
                 ], $code);
         }
@@ -60,7 +60,7 @@ class Handler extends ExceptionHandler
 
                 return response()->json(
                     [
-                        'message' => "Not Found",
+                        'mensaje' => "Not Found",
                         'error'   => true,
                     ], 404);
             }
@@ -68,7 +68,7 @@ class Handler extends ExceptionHandler
 
         return response()->json(
             [
-                'message' => "Error interno del servidor.",
+                'mensaje' => "Error interno del servidor.",
                 'error'   => true,
             ], 500);
     }
