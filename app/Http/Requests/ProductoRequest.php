@@ -28,6 +28,7 @@ class ProductoRequest extends FormRequest
                 'max:30',
             ],
             'descripcion'  => [
+                'nullable',
                 'string',
                 'max:50',
             ],
